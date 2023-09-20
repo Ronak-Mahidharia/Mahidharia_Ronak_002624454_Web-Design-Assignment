@@ -1,0 +1,25 @@
+Name: Ronak Vishal Mahidharia
+Student ID: 002624454
+Mail Id: mahidharia.r@northeastern.edu
+
+Website Name: Jepco Doors
+Website Type: E-commerce Website
+	
+I have develop a type of E-commerce website. The company deals in manufacturing and trading of wooden doors, laminated sheets, and other related items. I have used each and every tag mentioned in the assignment tab and aditionally used alot of tags and have applied various designs. I have use HTML and CSS will developing the entire website. I have also mentioned below the html tags used. 
+
+1) Favicon: It is a small icon displayed in the browser tab next to the page title.
+2) Table: It is used to create tabular data structures. It consists of rows and columns.
+3) Form: It is used to create interactive input forms on webpages. It includes various form controls like text fields, radio buttons, checkboxes, and buttons for user data input.
+4) Images: It can be sourced externally in the HTML document and are used to enhance content and visual appeal.
+5) Hyperlink: It is used to create clickable links to other web pages. 
+6) Button: It represents a clickable button on a webpage.
+7) audio: It is used to embed audio content on a webpage
+8) video: It is used to embed video content on a webpage
+9) header: It typically contains introductory content or navigation menus at the top of a webpage. 
+10) footer: It usually placed at the bottom of a webpage and contains information such as copyright notices, contact details, or links to related pages.
+11) summary: It is used in conjunction with the <details> element to provide a summary or title for collapsible content sections.
+12) menu: It represents a list of menu items, often used for navigation menus.
+13) tel for contact information: It is used to create clickable phone number links.
+14) mailto for contact information: It is used to create clickable email links.
+
+
