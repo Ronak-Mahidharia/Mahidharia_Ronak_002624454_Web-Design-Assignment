@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RM Portfolio Website</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://kit.fontawesome.com/ce231e32ce.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="/img/logo.png">
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <p><a href="#"><img src="/img/logo.png" alt="Logo" class="logo"/></a></p>
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Service</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                
+            </nav>
+
+            <div class="header-text">
+                <p>Web Developer</p>
+                <h1>Hi, I'm <span>Ronak Mahidharia</span></h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="/img/user.jpg" alt="Image" />
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-title">About Me</h1>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        Similique iure sapiente dolore autem fuga libero veritatis eum
+                        unde obcaecati ad nemo distinctio quasi amet odit in, error
+                        voluptates? Voluptatem quaerat eligendi, suscipit quasi blanditiis
+                        quae commodi dolorum voluptas eum hic sunt, accusamus corrupti
+                        quas molestias ullam fugit quo. Rem, nulla.
+                    </p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">
+                            Skills
+                        </p>
+                        <p class="tab-links" onclick="opentab('experience')">
+                            Experience
+                        </p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Programming Languages:</span><br />JavaScript</li>
+                            <li>
+                                <span>Web and Server Technologies:</span><br />HTML, Cascading
+                                Style Sheets (CSS)
+                            </li>
+                            <li>
+                                <span>Software tools and IDEs:</span><br />Visual Studio Code,
+                                IDEA IntelliJ
+                            </li>
+                            <li><span>Operating Systems:</span><br />Windows, OS X</li>
+                            <li><span>Version Control:</span><br />Git, GitHub</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li>
+                                <span>November 2022 – April 2023</span><br />Web Developer at
+                                Innovative Data Solutions Private Limited
+                            </li>
+                            <li>
+                                <span>May 2022 – October 2022</span><br />Web Content
+                                Developer at Innovative Data Solutions Private Limited
+                            </li>
+                            <li>
+                                <span>June 2021 - October 2021</span><br />Digital Marketing
+                                Intern at The Sparks Foundation
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li>
+                                <span>May 2025</span><br />Master of Science in Information
+                                Systems at Northeastern University
+                            </li>
+                            <li>
+                                <span>Mar 2022</span><br />Bachelor of Science in Information
+                                and Technology at Narsee Monjee College of Commerce and
+                                Economics
+                            </li>
+                            <li>
+                                <span>Feb 2019</span><br />Higher Secondary School Certificate
+                                at S K Somaiya Vinay Mandir Junior College
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services -->
+
+    <div id="services">
+        <div class="container">
+            <h1 class="sub-title">My Services</h1>
+            <div class="services-list">
+                <div>
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Web Design</h2>
+                    <p>Web design refers to the process of planning, creating, and arranging the visual and structural elements of a website. It involves the use of various design principles, graphic elements, and layout techniques to ensure a website's aesthetics, usability, and user experience align with the intended purpose and audience. Web designers use tools like HTML, CSS, and graphic design software to craft visually appealing and functional websites.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-crop-simple"></i>
+                    <h2>Web Content Development</h2>
+                    <p>Web content development involves the creation, organization, and optimization of textual, visual, and multimedia elements for websites. It focuses on producing engaging, informative, and relevant content that caters to the needs and interests of the website's target audience. Web content developers work to ensure that the content is well-structured, easy to navigate, and optimized for search engines (SEO) to enhance a website's visibility and effectiveness in conveying information or messages to users.</p>
+                    <a href="#">Learn More</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-app-store"></i>
+                    <h2>Courses</h2>
+                    <p>A tutorial course in IT, often referred to as an information technology tutorial or IT training course, is a structured educational program designed to teach individuals various aspects of information technology. These courses cover a wide range of topics within the IT field, including programming languages, software development, networking, cybersecurity, database management, and more. The goal of IT tutorial courses is to provide participants with practical knowledge and skills that can be applied to solve real-world IT challenges, improve job prospects, or enhance their understanding of technology-related concepts and practices</p>
+                    <a href="#">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio -->
+
+    <div id="portfolio">
+        <div class="container">
+            <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="/img/work-1.png" alt="Image">
+                    <div class="layer">
+                        <h3>Social Media App</h3>
+                        <p>A social media app is a software application designed for mobile or web platforms that
+                            enables users to interact, connect, and share content with others, fostering social
+                            networking and communication on the internet.</p>
+                        <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="/img/work-2.png" alt="Image">
+                    <div class="layer">
+                        <h3>Online Shopping App</h3>
+                        <p>An online shopping app is a software application for mobile or web devices that allows users
+                            to browse, select, and purchase products or services from e-commerce websites. It provides a
+                            digital platform for consumers to shop, make payments, and manage their shopping experience
+                            from the convenience of their devices.</p>
+                        <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="/img/work-3.png" alt="Image">
+                    <div class="layer">
+                        <h3>Music App</h3>
+                        <p>A music app is a software application available on mobile or web platforms that provides
+                            users with access to a vast library of audio tracks, enabling them to listen to, discover,
+                            create playlists, and enjoy music content. It serves as a digital music player and often
+                            includes features like personalized recommendations and music discovery tools.</p>
+                        <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#" class="btn">See more</a>
+
+        </div>
+    </div>
+
+    <!-- Contact -->
+
+    <div id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="contact-left">
+                    <h1 class="sub-title">Contact Me</h1>
+                    <p><i class="fa-solid fa-paper-plane"></i><a href="mailto:mahidharia.r@northeastern.edu" style="text-decoration: none; color: #fff;">mahidharia.r@northeastern.edu</a></p>
+                    <p><i class="fa-solid fa-phone-volume"></i><a href="tel:+18572649661" style="text-decoration: none; color: #fff;">8572649661</a></p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter-square"></i></a>
+                        <a href="https://www.linkedin.com/in/ronak-mahidharia-83038b191" target="_blank"><i
+                                class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <a href="/doc/Ronak Mahidharia Personal Resume.pdf" download class="btn btn2">Download Resume</a>
+                </div>
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet">
+                        <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                        <button type="submit" class="btn btn2">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright &copy; 2023 | Ronak Mahidharia <i class="fa-regular fa-face-smile"></i> </p>
+        </div>
+    </div>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <script>
+        var sidemenu = document.getElementById("sidemenu");
+
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+    </script>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyqZ5esTikY49Lq7cV9kzM-pNQ15vzrNKq9XHmphtHwEW0nLID_zblWYF-96UX2ZeCukA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully"
+                    setTimeout(function(){
+                        msg.innerHTML = ""
+                    },5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+
+</html>

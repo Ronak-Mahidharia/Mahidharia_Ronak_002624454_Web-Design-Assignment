@@ -1,0 +1,27 @@
+Name: Ronak Vishal Mahidharia
+Student ID: 002624454
+Mail Id: mahidharia.r@northeastern.edu
+
+Website Name: Personal Protfolio
+	
+I have develop an personal portfolio website which includes several tags and images from below and also have done with few changes for the responsive website. 
+
+1) Favicon: It is a small icon displayed in the browser tab next to the page title.
+2) Table: It is used to create tabular data structures. It consists of rows and columns.
+3) Form: It is used to create interactive input forms on webpages. It includes various form controls like text fields, radio buttons, checkboxes, and buttons for user data input.
+4) Images: It can be sourced externally in the HTML document and are used to enhance content and visual appeal.
+5) Hyperlink: It is used to create clickable links to other web pages. 
+6) Button: It represents a clickable button on a webpage.
+7) audio: It is used to embed audio content on a webpage
+8) video: It is used to embed video content on a webpage
+9) header: It typically contains introductory content or navigation menus at the top of a webpage. 
+10) footer: It usually placed at the bottom of a webpage and contains information such as copyright notices, contact details, or links to related pages.
+11) summary: It is used in conjunction with the <details> element to provide a summary or title for collapsible content sections.
+12) menu: It represents a list of menu items, often used for navigation menus.
+13) tel for contact information: It is used to create clickable phone number links.
+14) mailto for contact information: It is used to create clickable email links.
+15) Float: It is a property used to position elements horizontally within their containing element, often for creating text wrapping around images or other content.
+16) Overflow: It refers to the property that controls how content is displayed when it overflows the boundaries of its container, allowing you to manage scrolling or hiding of excess content.
+17) Position: It property determines how an element is positioned within its containing element, offering options like "relative," "absolute," and "fixed" for precise layout control.
+18) Responsive: It refers to the design approach that adapts web content and layouts to different screen sizes and devices, ensuring optimal viewing and usability across a range of screens.
+19) Media Quries: They are rules that allow you to apply specific styles to a webpage based on characteristics like screen width, height, or device type, enabling responsive design.
