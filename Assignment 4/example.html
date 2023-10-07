@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Feedback</title>
+    <style>
+        label {
+            float: left;
+            width: 150px;
+            margin-right: 10px;
+        }
+
+        #container {
+            width: 800px;
+            margin: auto;
+            background-color: beige;
+            padding-left: 50px;
+        }
+
+        main {
+            padding: 50px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        /* Style for the custom dropdown */
+        .custom-select {
+            position: relative;
+            display: inline-block;
+        }
+
+        .custom-select select {
+            display: none;
+        }
+
+        .custom-dropdown {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .custom-dropdown ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .custom-dropdown ul li {
+            padding: 5px;
+        }
+
+        .custom-dropdown ul li label {
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .custom-dropdown ul li input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .custom-select.open ul {
+            display: block;
+        }
+
+        /* Additional Feature Added CSS*/
+        #error-message {
+            color: red;
+        }
+
+        .table-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Style for the table */
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            text-align: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Feeback</h2>
+        <h3>Love something? Hate something? Let us know!</h3>
+        Note: Fields marked with an asterisk(*) are mandatory
+        <br /><br />
+        <form id="myForm" name="myForm" action="submit.php" method="post"
+            onsubmit="return validateForm(), checkTextareaSelected()">
+            <label>Title*:</label>
+            <input type="radio" name="title" id="miss" value="miss" required="required" />Miss
+            <input type="radio" name="title" id="mr" value="mr" required="required" />Mr.
+            <input type="radio" name="title" id="mrs" value="mrs" required="required" />Mrs. <br /><br />
+
+            <label for="firstName">First Name*:</label>
+            <input type="text" name="firstName" id="firstName" placeholder="First Name" required="required" />
+            <span id="firstNameError" class="error"></span>
+            <br /><br />
+
+            <label for="lastName">Last Name*:</label>
+            <input type="text" name="lastName" id="lastName" placeholder="Last Name" required="required" />
+            <span id="lastNameError" class="error"></span>
+            <br /><br />
+
+            <label for="email">Email Id*:</label>
+            <input type="text" name="email" id="email" placeholder="yourname@domain.com" required="required" />
+            <span id="emailError" class="error"></span>
+            <br /><br />
+
+            <label for="tel">Phone Number*:</label>
+            <input type="text" name="phone" id="phone" placeholder="xxx-xxx-xxxx" required="required" />
+            <span id="phoneError" class="error"></span>
+            <br /><br />
+
+            <label for="zipcode">ZipCode*:</label>
+            <input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" required="required" />
+            <span id="zipcodeError" class="error"></span>
+            <br /><br />
+
+            <label for="zipcode">How did you hear*:</label>
+            <input type="checkbox" name="source" value="facebook" /> Facebook
+            <input type="checkbox" name="source" value="google" /> Google
+            <input type="checkbox" name="source" value="yelp" /> Yelp
+            <span id="sourceError" class="error"></span>
+            <br><br>
+
+            <label for="comments">Comments*:</label>
+            <textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"
+                required="required"></textarea>
+            <span id="commentsError" class="error"></span>
+            <br /><br />
+
+            <!-- Additional features -->
+            <label for="streetAddress1">Street Address 1*:</label>
+            <textarea name="text" id="streetAddress1" placeholder="Enter Street Address 1" rows="5" cols="25"
+                required="required"></textarea>
+            <span id="streetAddress1Error" class="error"></span>
+            <br /><br />
+
+            <label for="streetAddress2">Street Address 2*:</label>
+            <textarea name="text" id="streetAddress2" placeholder="Enter Street Address 2" rows="5" cols="25"
+                required="required"></textarea>
+            <span id="streetAddress2Error" class="error"></span>
+            <br /><br />
+
+            <label for="city">City*:</label>
+            <input type="text" name="city" id="city" placeholder="Enter City Name" required="required" />
+            <span id="cityError" class="error"></span>
+            <br /><br />
+
+            <label for="state">State*:</label>
+            <input type="text" name="state" id="state" placeholder="Enter State Name" required="required" />
+            <span id="stateError" class="error"></span>
+            <br /><br />
+
+
+
+            <!-- Additional features -->
+
+            <label for="selectList">Drinks:</label>
+            <select id="selectList" onchange="toggleContainer(this.value)">
+                <option value="option1">Apple Juice</option>
+                <option value="option2">Coka Cola</option>
+                <option value="option3">Milk</option>
+                <option value="option4">Beer</option>
+                <option value="option5">Wine</option>
+            </select>
+
+            <div id="option1Container" style="display: none;">
+                <hr>
+                <div>
+                    <input type="checkbox" id="checkbox1" onchange="toggleTextarea('checkbox1', 'textarea1')"> Clear
+                    apple
+                    juice
+                    <br>
+                    <textarea id="textarea1" style="display: none;" rows="4" cols="50"
+                        placeholder="Enter text..."></textarea>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="checkbox2" onchange="toggleTextarea('checkbox2', 'textarea2')"> Cloudy
+                    apple
+                    juice
+                    <br>
+                    <textarea id="textarea2" style="display: none;" rows="4" cols="50"
+                        placeholder="Enter text..."></textarea>
+                </div>
+            </div>
+
+            <div id="option2Container" style="display: none;">
+
+                <hr>
+                <div>
+                    <input type="checkbox" id="checkbox3" onchange="toggleTextarea('checkbox3', 'textarea3')"> Diet Coke
+                    <br>
+                    <textarea id="textarea3" style="display: none;" rows="4" cols="50"
+                        placeholder="Enter text..."></textarea>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="checkbox4" onchange="toggleTextarea('checkbox4', 'textarea4')"> Classic
+                    Vanilla
+                    <br>
+                    <textarea id="textarea4" style="display: none;" rows="4" cols="50"
+                        placeholder="Enter text..."></textarea>
+                </div>
+            </div>
+
+            <div id="option3Container" style="display: none;">
+
+                <hr>
+                <div>
+                    <input type="checkbox" id="checkbox5" onchange="toggleTextarea('checkbox5', 'textarea5')"> Whole
+                    milk
+                    <br>
+                    <textarea id="textarea5" style="display: none;" rows="4" cols="50"
+                        placeholder="Enter text..."></textarea>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="checkbox6" onchange="toggleTextarea('checkbox6', 'textarea6')"> Reduce
+                    fat
+                    milk
+                    <br>
+                    <textarea id="textarea6" style="display: none;" rows="4" cols="50"
+                        placeholder="Enter text..."></textarea>
+                </div>
+            </div>
+
+            <div id="option4Container" style="display: none;">
+
+                <hr>
+                <div>
+                    <input type="checkbox" id="checkbox7" onchange="toggleTextarea('checkbox7', 'textarea7')"> Ales beer
+                    <br>
+                    <textarea id="textarea7" style="display: none;" rows="4" cols="50"
+                        placeholder="Enter text..."></textarea>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="checkbox8" onchange="toggleTextarea('checkbox8', 'textarea8')"> Lagers
+                    beer
+                    <br>
+                    <textarea id="textarea8" style="display: none;" rows="4" cols="50"
+                        placeholder="Enter text..."></textarea>
+                </div>
+            </div>
+
+            <div id="option5Container" style="display: none;">
+
+                <hr>
+                <div>
+                    <input type="checkbox" id="checkbox9" onchange="toggleTextarea('checkbox9', 'textarea9')"> Sweetness
+                    wine
+                    <br>
+                    <textarea id="textarea9" style="display: none;" rows="4" cols="50"
+                        placeholder="Enter text..."></textarea>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="checkbox10" onchange="toggleTextarea('checkbox10', 'textarea10')">
+                    Acidity
+                    wine
+                    <br>
+                    <textarea id="textarea10" style="display: none;" rows="4" cols="50"
+                        placeholder="Enter text..."></textarea>
+                </div>
+            </div>
+
+            <span id="error-message"></span>
+
+            <br><br>
+
+            <!-- Additional features Ended -->
+
+            <input type="submit" value="Submit" id="button-send" />
+            <input type="reset" value="Reset" />
+            <br /><br />
+
+        </form>
+    </div>
+    <br><br>
+    <div class="table-container" id="tableContainer" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr.no</th>
+                    <th>Title</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email ID</th>
+                    <th>Phone Number</th>
+                    <th>Zip Code</th>
+                    <th>How did you hear</th>
+                    <th>Comments</th>
+                    <th>Street Address 1</th>
+                    <th>Street Address 2</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Drinks</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Attach event listeners for real-time validation
+        document.getElementById("firstName").addEventListener("input", function () {
+            validateFirstName();
+        });
+
+        document.getElementById("lastName").addEventListener("input", function () {
+            validateLastName();
+        });
+
+        document.getElementById("email").addEventListener("input", function () {
+            validateEmail();
+        });
+
+        document.getElementById("phone").addEventListener("input", function () {
+            validatePhone();
+        });
+
+        document.getElementById("zipcode").addEventListener("input", function () {
+            validateZipcode();
+        });
+
+        document.getElementById("comments").addEventListener("input", function () {
+            validateComments();
+        });
+
+        document.getElementById("streetAddress1").addEventListener("input", function () {
+            validateStreetAddress1();
+        });
+
+        document.getElementById("streetAddress2").addEventListener("input", function () {
+            validateStreetAddress2();
+        });
+
+        document.getElementById("city").addEventListener("input", function () {
+            validateCity();
+        });
+
+        document.getElementById("state").addEventListener("input", function () {
+            validateState();
+        });
+
+        // Validation functions for each field
+        function validateFirstName() {
+            var firstName = document.getElementById("firstName").value;
+            var firstNameError = document.getElementById("firstNameError");
+            var valid = true;
+            var firstNameRegex = /^[a-zA-Z\s]+$/;//shsgh
+            firstNameError.textContent = "";
+
+            if (!firstName) {
+                firstNameError.textContent = "First Name is required.";
+            } else if (firstName.length < 5 || firstName.length > 50) {
+                firstNameError.textContent = "First Name must be between 5 and 50 characters.";
+            } else if (!firstName.match(firstNameRegex)) {
+                document.getElementById("firstNameError").textContent =
+                    "First Name must contain only characters.";
+                console.log("error:", valid);
+                valid = false;
+            }
+            else {
+                document.getElementById("firstNameError").textContent = "";
+            }
+            return valid;
+        }
+
+        function validateLastName() {
+            var lastName = document.getElementById("lastName").value;
+            var lastNameError = document.getElementById("lastNameError");
+            var valid = true;
+            var lastNameRegex = /^[a-zA-Z\s]+$/;
+            lastNameError.textContent = "";
+
+            if (!lastName) {
+                lastNameError.textContent = "Last Name is required.";
+            } else if (lastName.length < 5 || lastName.length > 50) {
+                lastNameError.textContent = "Last Name must be between 5 and 50 characters.";
+            } else if (!lastName.match(lastNameRegex)) {
+                document.getElementById("lastNameError").textContent =
+                    "Last Name must contain only characters.";
+                valid = false;
+            } else {
+                document.getElementById("lastNameError").textContent = "";
+            }
+            return valid;
+        }
+
+        function validateEmail() {
+            var email = document.getElementById("email").value;
+            var emailError = document.getElementById("emailError");
+            emailError.textContent = "";
+
+            var emailRegex = /^[a-zA-Z0-9._-]+@northeastern\.edu$/;
+            if (!email.match(emailRegex)) {
+                emailError.textContent = "Invalid Email ID format (e.g., ...@northeastern.edu).";
+            }
+        }
+
+        function validatePhone() {
+            var phone = document.getElementById("phone").value;
+            var phoneError = document.getElementById("phoneError");
+            phoneError.textContent = "";
+
+            var phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+            if (!phone.match(phoneRegex)) {
+                phoneError.textContent = "Invalid Phone number format (e.g., xxx-xxx-xxxx).";
+            }
+        }
+
+        function validateZipcode() {
+            var zipcode = document.getElementById("zipcode").value;
+            var zipcodeError = document.getElementById("zipcodeError");
+            zipcodeError.textContent = "";
+
+            var zipcodeRegex = /^\d{5}(?:-\d{4})?$/;
+            if (!zipcode.match(zipcodeRegex)) {
+                zipcodeError.textContent = "Invalid Zip code format (e.g., 12345 or 12345-6789).";
+            }
+        }
+
+        function validateComments() {
+            var comments = document.getElementById("comments").value;
+            var commentsError = document.getElementById("commentsError");
+            commentsError.textContent = "";
+
+            if (!comments) {
+                commentsError.textContent = "Comments are required.";
+            } else if (comments.length < 10 || comments.length > 500) {
+                commentsError.textContent = "Comments must be between 10 and 500 characters.";
+            }
+        }
+
+        function validateStreetAddress1() {
+            var streetAddress1 = document.getElementById("streetAddress1").value;
+            var streetAddress1Error = document.getElementById("streetAddress1Error");
+            streetAddress1Error.textContent = "";
+
+            if (!streetAddress1) {
+                streetAddress1Error.textContent = "Street Address 1 is required.";
+            } else if (streetAddress1.length < 10 || streetAddress1.length > 500) {
+                streetAddress1Error.textContent = "Street Address 1 must be between 10 and 500 characters.";
+            }
+        }
+
+        function validateStreetAddress2() {
+            var streetAddress2 = document.getElementById("streetAddress2").value;
+            var streetAddress2Error = document.getElementById("streetAddress2Error");
+            streetAddress2Error.textContent = "";
+
+            if (!streetAddress2) {
+                streetAddress2Error.textContent = "Street Address 2 are required.";
+            } else if (streetAddress2.length < 10 || streetAddress2.length > 500) {
+                streetAddress2Error.textContent = "Street Address 2 must be between 10 and 500 characters.";
+            }
+        }
+
+        function validateCity() {
+            var city = document.getElementById("city").value;
+            var cityError = document.getElementById("cityError");
+            var valid = true;
+            var cityRegex = /^[a-zA-Z\s]+$/;//shsgh
+            cityError.textContent = "";
+
+            if (!city) {
+                cityError.textContent = "City is required.";
+            } else if (city.length < 5 || city.length > 50) {
+                cityError.textContent = "City must be between 5 and 50 characters.";
+            } else if (!city.match(cityRegex)) {
+                document.getElementById("cityError").textContent =
+                    "City must contain only characters.";
+                console.log("error:", valid);
+                valid = false;
+            }
+            else {
+                document.getElementById("cityError").textContent = "";
+            }
+            return valid;
+        }
+
+        function validateState() {
+            var state = document.getElementById("state").value;
+            var stateError = document.getElementById("stateError");
+            var valid = true;
+            var stateRegex = /^[a-zA-Z\s]+$/;//shsgh
+            stateError.textContent = "";
+
+            if (!state) {
+                stateError.textContent = "State is required.";
+            } else if (state.length < 5 || state.length > 50) {
+                stateError.textContent = "State must be between 5 and 50 characters.";
+            } else if (!state.match(stateRegex)) {
+                document.getElementById("stateError").textContent =
+                    "State must contain only characters.";
+                console.log("error:", valid);
+                valid = false;
+            }
+            else {
+                document.getElementById("stateError").textContent = "";
+            }
+            return valid;
+        }
+        // Addition features JS
+        function toggleContainer(option) {
+            // Hide all option containers
+            for (var i = 1; i <= 5; i++) {
+                var container = document.getElementById('option' + i + 'Container');
+                container.style.display = 'none';
+            }
+
+            // Show the selected option container
+            var selectedContainer = document.getElementById(option + 'Container');
+            selectedContainer.style.display = 'block';
+        }
+
+        function toggleTextarea(checkboxId, textareaId) {
+            var checkbox = document.getElementById(checkboxId);
+            var textarea = document.getElementById(textareaId);
+
+            if (checkbox.checked) {
+                textarea.style.display = 'block'; // Show the textarea
+            } else {
+                textarea.style.display = 'none'; // Hide the textarea
+            }
+        }
+
+        function checkTextareaSelected() {
+            var textareas = document.querySelectorAll('textarea');
+            var atLeastOneTextareaVisible = Array.from(textareas).some(function (textarea) {
+                return textarea.style.display === 'block';
+            });
+
+            if (atLeastOneTextareaVisible) {
+                // Validation complete, allow form submission
+                document.getElementById('error-message').textContent = ''; // Clear error message
+                return true;
+            } else {
+                // Validation failed, display error message
+                document.getElementById('error-message').textContent = 'Please select one textarea.';
+                return false;
+            }
+
+            var dropdowns = document.querySelectorAll('.custom-dropdown');
+            for (var i = 0; i < dropdowns.length; i++) {
+                var textarea = dropdowns[i].querySelector('textarea');
+                if (textarea.style.display === 'block' && textarea.value.trim() !== '') {
+                    document.getElementById('error-message').textContent = ''; // Clear error message
+                    return true;
+                }
+            }
+            document.getElementById('error-message').textContent = 'Please fill at least one textarea.';
+            return false;
+        }
+
+        // // Addition features JS Ended
+
+        // Function to validate the entire form
+        function validateForm() {
+
+            validateFirstName();
+            validateLastName();
+            validateEmail();
+            validatePhone();
+            validateZipcode();
+            validateComments();
+            validateStreetAddress1();
+            validateStreetAddress2();
+            validateCity();
+            validateState();
+            checkTextareaSelected();
+            return validateCheckboxes();
+        }
+
+        // Additional validation for checkboxes
+        function validateCheckboxes() {
+            var sourceCheckboxes = document.getElementsByName("source");
+            var sourceError = document.getElementById("sourceError");
+            sourceError.textContent = "";
+
+            var atLeastOneChecked = false;
+
+            for (var i = 0; i < sourceCheckboxes.length; i++) {
+                if (sourceCheckboxes[i].checked) {
+                    atLeastOneChecked = true;
+                    break;
+                }
+            }
+
+            if (!atLeastOneChecked) {
+                sourceError.textContent = "Select at least one option.";
+                return false;
+            }
+
+            return true;
+        }
+
+        // Attach event listener for form submission
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Validate the form
+            var formValid = validateForm() && checkTextareaSelected();
+
+            if (formValid) {
+                // Add form data to the table
+                addFormDataToTable();
+            }
+        });
+
+        // Function to add form data to the table
+        function addFormDataToTable() {
+            // Retrieve form values
+            var title = document.querySelector('input[name="title"]:checked').value;
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var zipcode = document.getElementById("zipcode").value;
+            var source = getSelectedSources();
+            var comments = document.getElementById("comments").value;
+            var streetAddress1 = document.getElementById("streetAddress1").value;
+            var streetAddress2 = document.getElementById("streetAddress2").value;
+            var city = document.getElementById("city").value;
+            var state = document.getElementById("state").value;
+            var selectedDrink = document.getElementById("selectList").value;
+            var drinkOptions = getSelectedDrinkOptions();
+
+            // Create a new table row
+            var tableBody = document.getElementById("tableBody");
+            var newRow = tableBody.insertRow();
+
+            // Create table cells and set their values
+            var cells = [];
+            for (var i = 0; i < 14; i++) {
+                cells[i] = newRow.insertCell(i);
+            }
+            cells[0].textContent = tableBody.rows.length; // Serial number
+            cells[1].textContent = title;
+            cells[2].textContent = firstName;
+            cells[3].textContent = lastName;
+            cells[4].textContent = email;
+            cells[5].textContent = phone;
+            cells[6].textContent = zipcode;
+            cells[7].textContent = source.join(', ');
+            cells[8].textContent = comments;
+            cells[9].textContent = streetAddress1;
+            cells[10].textContent = streetAddress2;
+            cells[11].textContent = city;
+            cells[12].textContent = state;
+            cells[13].textContent = selectedDrink + ": " + drinkOptions.join(', ');
+
+            // Clear the form fields
+            document.getElementById("myForm").reset();
+
+            // Display the table
+            document.getElementById("tableContainer").style.display = "block";
+        }
+
+        // Function to get selected sources
+        function getSelectedSources() {
+            var sources = [];
+            var checkboxes = document.querySelectorAll('input[name="source"]:checked');
+            checkboxes.forEach(function (checkbox) {
+                sources.push(checkbox.value);
+            });
+            return sources;
+        }
+
+        // Function to get selected drink options
+        function getSelectedDrinkOptions() {
+            var options = [];
+            for (var i = 1; i <= 10; i++) {
+                var checkbox = document.getElementById("checkbox" + i);
+                var textarea = document.getElementById("textarea" + i);
+                if (checkbox.checked) {
+                    options.push(checkbox.parentElement.textContent.trim());
+                    if (textarea.value) {
+                        options.push("Additional Info: " + textarea.value);
+                    }
+                }
+            }
+            return options;
+        }
+    </script>
+</body>
+
+</html>
