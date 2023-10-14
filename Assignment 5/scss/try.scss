@@ -1,0 +1,190 @@
+@import 'try1.scss';
+@import 'footer.scss';
+@import 'grid2.scss';
+@import 'root';
+
+// Custom Function
+@function calculate-width($num-columns) {
+    @return (100% - (gap * (#{$num-columns} - 1))) / #{$num-columns};
+}
+
+// Variables for reusability
+$button-background: white;
+$button-color: black;
+$button-padding: 10px 20px;
+$button-font-size: 16px;
+
+// Mixin for button styles
+@mixin button-styles {
+    background-color: $button-background;
+    color: $button-color;
+    border: none;
+    padding: $button-padding;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: $button-font-size;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-right: 10px; // Add some space between buttons
+    font-family: Kanit;
+    font-weight: bold;
+}
+
+// Mixin for blue text
+@mixin blue-text {
+    color: blue;
+}
+
+// Mixin for black border
+@mixin black-border {
+    border: 2px solid black;
+}
+
+// Reset some default styles for the navbar and buttons
+body {
+    margin: 0;
+    padding: 0;
+}
+
+// Style the navbar with a white background
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white; // White background
+    padding: 30px 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Optional shadow effect
+
+    .navbar-right {
+        &:hover {
+            @include blue-text;
+            @include black-border;
+        }
+    }
+
+    .navbar-left {
+        @extend .navbar-right;
+    }
+}
+
+// Style the buttons using the button-styles mixin
+.navbar-button {
+    @include button-styles;
+
+    // Remove right margin for the last button on the right
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.navbar-logo {
+    img {
+        width: 140px;
+        height: 85px;
+    }
+}
+
+// Container Changes
+.container {
+    background: url(/img/bg.jpg);
+    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    @media (max-width: 768px) {
+        height: 400px; // Adjust for smaller screens
+    }
+}
+
+// Define placeholders for grid container and grid item
+%grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40%;
+}
+
+%grid-item {
+    padding: 20px;
+    margin-top: 40%;
+}
+
+.#{$g}-container {
+    @extend %grid-container;
+
+    .#{$g}-item {
+        @extend %grid-item;
+    }
+
+    .g1 {
+        font-family: 'Kanit', sans-serif;
+        font-family: 'Noto Sans', sans-serif;
+        font-size: 18px;
+    }
+
+    .g2 {
+        font-family: cursive;
+    }
+
+    .g3 {
+        button {
+            border: 1px solid black;
+            padding: 5px;
+            width: var(--width);
+            font-size: 15px;
+            height: 35px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+
+    .g31 {
+        margin-left: var(--margin-left);
+    }
+}
+
+
+
+
+
+
+
+.form {
+    text-align: center;
+    h2 {
+        font-family: sans-serif;
+        font-size: 35px;
+    }
+
+    hr {
+        width: 100px;
+        border: 0;
+        border-top: 2px solid black;
+    }
+
+    label {
+        font-family: cursive;
+    }
+
+    input {
+        border: none;
+        border-bottom: 2px solid black;
+        width: 40%;
+        height: 40px;
+        margin-left: 10px;
+    }
+
+    #pass {
+        margin-left: 36px;
+    }
+
+    button {
+        @extend %blue-text;
+        @extend %black-border;
+        background-color: white;
+        padding: 10px 18px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

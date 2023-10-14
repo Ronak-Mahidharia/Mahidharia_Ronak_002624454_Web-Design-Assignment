@@ -1,0 +1,44 @@
+.maintry1con .one {
+  font-family: cursive;
+}
+.maintry1con .two {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+}
+.maintry1con .two p {
+  margin: auto;
+}
+.maintry1con p {
+  text-align: center;
+}
+.maintry1con hr {
+  width: 100px;
+  border: 0;
+  border-top: 2px solid black;
+}
+.maintry1con .try1conflex {
+  display: flex;
+  justify-content: center;
+}
+.maintry1con .try1conflex div img {
+  width: 260px;
+  height: 280px;
+}
+.maintry1con .try1conflex h3 {
+  text-align: center;
+}
+.maintry1con .try1con p, .maintry1con .try1con1 p p {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 14px;
+}
+.maintry1con .try1con1 {
+  margin-left: 150px;
+}
+.maintry1con .try1con2 {
+  margin-left: 150px;
+}
+.maintry1con .try1con2 p {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 14px;
+}/*# sourceMappingURL=try1.css.map */
